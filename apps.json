@@ -1,0 +1,15 @@
+[
+  {
+    "repo": "elabx-org/agent-os",
+    "tagPrefix": "ios-build-",
+    "asset": "AgentOS.ipa",
+    "name": "Agent-OS",
+    "bundleIdentifier": "org.elabx.agentos",
+    "developerName": "elabx",
+    "subtitle": "Your AI coding sessions, native on iPhone Duo",
+    "localizedDescription": "Agent-OS in a native shell: navigation in the system bar, terminal keys on the keyboard, and a laptop layout when the iPhone Duo is half open.",
+    "iconURL": "https://raw.githubusercontent.com/elabx-org/agent-os/main/ios/App/Assets.xcassets/AppIcon.appiconset/icon-1024.png",
+    "tintColor": "E6E7EA",
+    "minOSVersion": "26.0"
+  }
+]

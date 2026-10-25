@@ -2,7 +2,8 @@
 """Build source.json (AltStore format, which Feather reads) from apps.json.
 
 Each app's versions are its newest GitHub releases whose tag starts with
-`tagPrefix` and that carry `asset`. Release names end in "<version> (build <n>)".
+`tagPrefix` and that carry `asset`, from `repo` or from each of `repos`
+(e.g. a build-only copy beside the main repo). Release names end in "<version> (build <n>)".
 
 Usage: GITHUB_TOKEN=... build_source.py [apps.json] [source.json]
 """
@@ -30,7 +31,8 @@ def releases(repo):
 
 def versions(app):
     found = []
-    for release in releases(app["repo"]):
+    repos = app.get("repos") or [app["repo"]]
+    for release in (r for repo in repos for r in releases(repo)):
         if release["draft"] or not release["tag_name"].startswith(app["tagPrefix"]):
             continue
         asset = next((a for a in release["assets"] if a["name"] == app["asset"]), None)
@@ -46,14 +48,18 @@ def versions(app):
             "size": asset["size"],
             "minOSVersion": app["minOSVersion"],
         })
-    found.sort(key=lambda v: int(v["buildVersion"]), reverse=True)
-    return found[:KEEP]
+    found.sort(key=lambda v: (int(v["buildVersion"]), v["date"]), reverse=True)
+    # One entry per build, the newest if two repos made the same number
+    unique = {}
+    for v in found:
+        unique.setdefault(v["buildVersion"], v)
+    return list(unique.values())[:KEEP]
 
 
 def entry(app):
     listed = versions(app)
     if not listed:
-        raise SystemExit(f"{app['repo']}: no releases with {app['asset']}")
+        raise SystemExit(f"{app.get('repos') or app['repo']}: no releases with {app['asset']}")
     newest = listed[0]
     fields = ("name", "bundleIdentifier", "developerName", "subtitle",
               "localizedDescription", "iconURL", "tintColor")

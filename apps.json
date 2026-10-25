@@ -1,6 +1,9 @@
 [
   {
-    "repo": "elabx-org/agent-os",
+    "repos": [
+      "elabx-org/agent-os-build",
+      "elabx-org/agent-os"
+    ],
     "tagPrefix": "ios-build-",
     "asset": "AgentOS.ipa",
     "name": "Agent-OS",

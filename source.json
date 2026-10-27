@@ -15,6 +15,15 @@
       "tintColor": "E6E7EA",
       "versions": [
         {
+          "version": "0.1.43",
+          "buildVersion": "43",
+          "date": "2026-10-27T01:00:49Z",
+          "localizedDescription": "Build 43 (ios-build-43)",
+          "downloadURL": "https://github.com/elabx-org/agent-os-build/releases/download/ios-build-43/AgentOS.ipa",
+          "size": 214195,
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.1.41",
           "buildVersion": "41",
           "date": "2026-10-26T23:35:13Z",
@@ -49,22 +58,13 @@
           "downloadURL": "https://github.com/elabx-org/agent-os-build/releases/download/ios-build-35/AgentOS.ipa",
           "size": 193477,
           "minOSVersion": "26.0"
-        },
-        {
-          "version": "0.1.33",
-          "buildVersion": "33",
-          "date": "2026-10-26T15:12:21Z",
-          "localizedDescription": "Build 33 (ios-build-33)",
-          "downloadURL": "https://github.com/elabx-org/agent-os-build/releases/download/ios-build-33/AgentOS.ipa",
-          "size": 192531,
-          "minOSVersion": "26.0"
         }
       ],
-      "version": "0.1.41",
-      "versionDate": "2026-10-26T23:35:13Z",
-      "versionDescription": "Build 41 (ios-build-41)",
-      "downloadURL": "https://github.com/elabx-org/agent-os-build/releases/download/ios-build-41/AgentOS.ipa",
-      "size": 212320,
+      "version": "0.1.43",
+      "versionDate": "2026-10-27T01:00:49Z",
+      "versionDescription": "Build 43 (ios-build-43)",
+      "downloadURL": "https://github.com/elabx-org/agent-os-build/releases/download/ios-build-43/AgentOS.ipa",
+      "size": 214195,
       "appPermissions": {
         "entitlements": [],
         "privacy": {}
